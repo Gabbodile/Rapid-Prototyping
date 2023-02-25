@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : GameBehaviour<SpawnManager>
 {
     public int waveNumber = 1;
+    public TMP_Text waveText;
+    public int score = 0;
 
     [Header("Enemy Spawn")]
     public GameObject enemyPrefab;
@@ -21,7 +24,7 @@ public class SpawnManager : MonoBehaviour
         SpawnPowerups();
     }
 
-    private void Update()
+    public void Update()
     {
         enemiesSpawned = FindObjectsOfType<Enemy>().Length;
         if (enemiesSpawned == 0)
@@ -30,8 +33,15 @@ public class SpawnManager : MonoBehaviour
             SpawnEnemyWave(waveNumber);
             SpawnPowerups();
         }
-            
+        waveText.text = "Wave Number " + waveNumber;
     }
+
+    public void AddScore(int _score)
+    {
+        score = score += waveNumber;
+        _UI.TweenScore(_score);
+    }
+
     void SpawnEnemyWave(int enemyCount)
     {
         for (int i = 0; i < enemyCount; i++)

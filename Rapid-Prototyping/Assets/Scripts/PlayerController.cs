@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : GameBehaviour<PlayerController>
 {
     private Rigidbody playerRB;
     private GameObject focalPoint;
@@ -39,6 +40,11 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             StartCoroutine(PowerUpCountdown());
         }
+
+        if (other.CompareTag("Out Of Bounds"))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     IEnumerator PowerUpCountdown()
@@ -57,6 +63,8 @@ public class PlayerController : MonoBehaviour
 
             enemyRigidbody.AddForce(awayFromPlayer * powerUpStrength, ForceMode.Impulse);
             Debug.Log("Collided with" + collision.gameObject.name + " with powerup set to" + hasPowerUp);
+
+            
         }
     }
 }

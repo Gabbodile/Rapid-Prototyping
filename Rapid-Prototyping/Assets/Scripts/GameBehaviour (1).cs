@@ -5,6 +5,8 @@ public class GameBehaviour : MJ.Behaviour
 {
     //Project Specific
     protected static UIManager _UI { get { return UIManager.Instance; } }
+    protected static SpawnManager _SM { get { return SpawnManager.Instance; } }
+    protected static PlayerController _PC { get { return PlayerController.Instance; } }
 
 }
 

@@ -6,20 +6,20 @@ using UnityEngine;
 
 public class UIManager : GameBehaviour<UIManager>
 {
+
     public TMP_Text scoreText;
-    int score = 0;
     int scoreBonus = 50;
 
     private void Start()
     {
-        scoreText.text = score.ToString();
+        TweenScore(0);
     }
 
-    public void TweenScore()
+    public void TweenScore(int _score)
     {
-        DOTween.To(() => score, x => score = x, score + scoreBonus, 1).OnUpdate(() =>
+        DOTween.To(() => _score, x => _score = x, _score + scoreBonus, 1).OnUpdate(() =>
         {
-            scoreText.text = "score: " + score.ToString();
+            scoreText.text = "score: " + _score;
         });
     }
 }
