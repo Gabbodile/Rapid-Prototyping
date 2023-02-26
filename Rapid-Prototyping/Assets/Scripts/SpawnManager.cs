@@ -5,9 +5,10 @@ using TMPro;
 
 public class SpawnManager : GameBehaviour<SpawnManager>
 {
-    public int waveNumber = 1;
-    public TMP_Text waveText;
+    public int waveNumber = 0;
     public int score = 0;
+    public int scoreBonus = 50;
+    public TMP_Text waveText;
 
     [Header("Enemy Spawn")]
     public GameObject enemyPrefab;
@@ -20,27 +21,38 @@ public class SpawnManager : GameBehaviour<SpawnManager>
 
     void Start()
     {
-        SpawnEnemyWave(waveNumber);
-        SpawnPowerups();
+        //WaveNumber(waveNumber);
     }
 
     public void Update()
     {
+        waveText.text = "Wave Number " + waveNumber;
+
         enemiesSpawned = FindObjectsOfType<Enemy>().Length;
         if (enemiesSpawned == 0)
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);
             SpawnPowerups();
+
+            AddScore(score);
+            score++;
         }
-        waveText.text = "Wave Number " + waveNumber;
+        
     }
+
+    //public void WaveNumber(int _wave)
+    //{
+    //    _wave = waveNumber;
+    //    _UI.TweenScore(_wave);
+    //}
 
     public void AddScore(int _score)
     {
-        score = score += waveNumber;
+        _score = score * scoreBonus;
         _UI.TweenScore(_score);
     }
+    
 
     void SpawnEnemyWave(int enemyCount)
     {

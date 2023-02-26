@@ -360,6 +360,7 @@
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Playtime.cs"
 "Assets/Scripts/RotateCamera.cs"
+"Assets/Scripts/SceneChanger.cs"
 "Assets/Scripts/SceneFader.cs"
 "Assets/Scripts/SpawnManager.cs"
 "Assets/Scripts/UIManager.cs"

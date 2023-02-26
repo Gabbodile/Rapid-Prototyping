@@ -10,6 +10,9 @@ public class PlayerController : GameBehaviour<PlayerController>
 
     [Header("Player")]
     public float speed = 5.0f;
+    public int playerHealth = 3;
+    public GameObject player;
+    public Transform respawnPoint;
 
     [Header("Power ups")]
     public bool hasPowerUp = false;
@@ -43,7 +46,13 @@ public class PlayerController : GameBehaviour<PlayerController>
 
         if (other.CompareTag("Out Of Bounds"))
         {
-            SceneManager.LoadScene(0);
+            player.transform.position = respawnPoint.position;
+            playerHealth = playerHealth - 1;
+            Health(playerHealth);
+            if (playerHealth == 0)
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 
@@ -63,8 +72,16 @@ public class PlayerController : GameBehaviour<PlayerController>
 
             enemyRigidbody.AddForce(awayFromPlayer * powerUpStrength, ForceMode.Impulse);
             Debug.Log("Collided with" + collision.gameObject.name + " with powerup set to" + hasPowerUp);
-
-            
         }
+        else
+        {
+            Debug.Log("Collided with" + collision.gameObject.name + " with powerup set to" + hasPowerUp);
+        }
+    }
+
+    public void Health(int _health)
+    {
+        _health = playerHealth;
+        _UI.TweenHealth(_health);
     }
 }
