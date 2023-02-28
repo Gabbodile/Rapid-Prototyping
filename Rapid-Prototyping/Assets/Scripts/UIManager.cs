@@ -42,4 +42,5 @@ public class UIManager : GameBehaviour<UIManager>
             healthText.text = "Health: " + _health;
         });
     }
+   
 }

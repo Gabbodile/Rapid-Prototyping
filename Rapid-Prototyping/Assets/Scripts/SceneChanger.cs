@@ -5,6 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : GameBehaviour<SceneChanger>
 {
+    public GameObject pauseMenu;
+    bool isPaused = false;
+
+    private void Start()
+    {
+        pauseMenu.SetActive(false);
+        isPaused = false;
+        Time.timeScale = 1;
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            TogglePause();
+    }
     public void MainMenu()
     {
         SceneManager.LoadScene("Title");
@@ -19,5 +33,13 @@ public class SceneChanger : GameBehaviour<SceneChanger>
     {
         Debug.Log("We have Quit the Game");
         Application.Quit();
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+        pauseMenu.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0 : 1;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
 }
