@@ -7,6 +7,9 @@ public class GameBehaviour : MJ.Behaviour
     protected static UIManager _UI { get { return UIManager.Instance; } }
     protected static SpawnManager _SM { get { return SpawnManager.Instance; } }
     protected static PlayerController _PC { get { return PlayerController.Instance; } }
+    protected static Enemy _ENEMY { get { return Enemy.Instance; } }
+    protected static Timer _TIMER { get { return Timer.Instance; } }
+    protected static GameManager _GM { get { return GameManager.Instance; } }
 
 }
 

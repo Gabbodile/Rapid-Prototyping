@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : GameBehaviour<Enemy>
 {
-    public float speed = 3.0f;
+    public float enemySpeed = 3.0f;
 
     private Rigidbody enemyRB;
     private GameObject player;
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-        enemyRB.AddForce(lookDirection * speed);
+        enemyRB.AddForce(lookDirection * enemySpeed);
         if (transform.position.y < -10)
         {
             Destroy(this.gameObject);

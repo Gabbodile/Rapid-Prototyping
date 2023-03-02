@@ -357,12 +357,14 @@
 "Assets/Scripts/Behaviour.cs"
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/GameBehaviour (1).cs"
+"Assets/Scripts/GameManager.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Playtime.cs"
 "Assets/Scripts/RotateCamera.cs"
 "Assets/Scripts/SceneChanger.cs"
 "Assets/Scripts/SceneFader.cs"
 "Assets/Scripts/SpawnManager.cs"
+"Assets/Scripts/Timer.cs"
 "Assets/Scripts/UIManager.cs"
 -langversion:9.0
 

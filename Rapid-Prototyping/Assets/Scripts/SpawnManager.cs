@@ -7,7 +7,6 @@ public class SpawnManager : GameBehaviour<SpawnManager>
 {
     public int waveNumber = 0;
     public int score = 0;
-    public int scoreBonus = 50;
     public TMP_Text waveText;
 
     [Header("Enemy Spawn")]
@@ -19,9 +18,11 @@ public class SpawnManager : GameBehaviour<SpawnManager>
 
     private float spawnRange = 9;
 
+    public GameObject winScreen;
+
     void Start()
     {
-        //WaveNumber(waveNumber);
+        Time.timeScale = 1;
     }
 
     public void Update()
@@ -39,20 +40,19 @@ public class SpawnManager : GameBehaviour<SpawnManager>
             score++;
         }
         
+        if (waveNumber == 10)
+        {
+            Time.timeScale = 0;
+            winScreen.SetActive(true);
+        }
     }
-
-    //public void WaveNumber(int _wave)
-    //{
-    //    _wave = waveNumber;
-    //    _UI.TweenScore(_wave);
-    //}
 
     public void AddScore(int _score)
     {
-        _score = score * scoreBonus;
+        _score = score * _GM.scoreBonus;
         _UI.TweenScore(_score);
     }
-    
+
 
     void SpawnEnemyWave(int enemyCount)
     {

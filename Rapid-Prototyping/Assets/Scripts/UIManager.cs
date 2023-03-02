@@ -9,12 +9,18 @@ public class UIManager : GameBehaviour<UIManager>
     public TMP_Text scoreText;
     //public TMP_Text waveText;
     public TMP_Text healthText;
+    public TMP_Text timerText;
 
     private void Start()
     {
         TweenHealth(3);
         //TweenWave(1);
         TweenScore(0);
+    }
+
+    private void Update()
+    {
+        timerText.text = _TIMER.GetTime().ToString("F3");
     }
 
     public void TweenScore(int _score)
