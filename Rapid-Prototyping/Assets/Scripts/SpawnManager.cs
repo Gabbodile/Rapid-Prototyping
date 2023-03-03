@@ -13,11 +13,11 @@ public class SpawnManager : GameBehaviour<SpawnManager>
     [Header("Enemy Spawn")]
     public GameObject enemyPrefab;
     public int enemiesSpawned;
+    public float spawnRange = 9;
 
     [Header("Power ups")]
     public GameObject[] powerupPrefab;
-
-    private float spawnRange = 9;
+    
 
     public GameObject winScreen;
 
@@ -65,6 +65,7 @@ public class SpawnManager : GameBehaviour<SpawnManager>
     {
         for (int i = 0; i < enemyCount; i++)
         {
+
             Instantiate(enemyPrefab, RandomSpawnPos(), enemyPrefab.transform.rotation);
         }
     }

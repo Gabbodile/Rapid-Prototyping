@@ -9,6 +9,7 @@ TagManager:
   - Out Of Bounds
   - Collectable
   - Potion
+  - Trophy
   layers:
   - Default
   - TransparentFX

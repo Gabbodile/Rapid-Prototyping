@@ -28,6 +28,10 @@ public class SceneChanger : GameBehaviour<SceneChanger>
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void StartLevel2()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+    }
 
     public void RestartLevel()
     {
