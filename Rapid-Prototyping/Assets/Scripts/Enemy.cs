@@ -11,6 +11,7 @@ public class Enemy : GameBehaviour<Enemy>
 
     void Start()
     {
+        SetUp();
         enemyRB = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
     }
@@ -22,6 +23,24 @@ public class Enemy : GameBehaviour<Enemy>
         if (transform.position.y < -10)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    void SetUp()
+    {
+        switch (_GM.difficulty)
+        {
+            case Difficulty.Easy:
+                enemySpeed = 1;
+                break;
+
+            case Difficulty.Medium:
+                enemySpeed = 3;
+                break;
+
+            case Difficulty.Hard:
+                enemySpeed = 5;
+                break;
         }
     }
 }

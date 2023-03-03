@@ -5,7 +5,7 @@ using UnityEngine;
 public enum TimerDirection { CountUp, CountDown }
 public class Timer : GameBehaviour<Timer>
 {
-    public TimerDirection timerDirection;
+    private TimerDirection timerDirection;
     public float startTime = 0;
     float currentTime;
     bool isTimed = false;

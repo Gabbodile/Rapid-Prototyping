@@ -7,6 +7,8 @@ TagManager:
   - Powerup
   - Enemy
   - Out Of Bounds
+  - Collectable
+  - Potion
   layers:
   - Default
   - TransparentFX

@@ -6,13 +6,18 @@ using UnityEngine;
 
 public class UIManager : GameBehaviour<UIManager>
 {
+    [Header("Text")]
     public TMP_Text scoreText;
     //public TMP_Text waveText;
     public TMP_Text healthText;
     public TMP_Text timerText;
 
+    [Header("Screens")]
+    public GameObject gameOverScreen;
+
     private void Start()
     {
+        gameOverScreen.SetActive(false);
         TweenHealth(3);
         //TweenWave(1);
         TweenScore(0);
@@ -48,5 +53,10 @@ public class UIManager : GameBehaviour<UIManager>
             healthText.text = "Health: " + _health;
         });
     }
-   
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        gameOverScreen.SetActive(true);
+    }
 }

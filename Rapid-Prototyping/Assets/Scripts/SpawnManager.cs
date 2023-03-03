@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum PickupTypes { Powerup, Potion, Collectable }
 public class SpawnManager : GameBehaviour<SpawnManager>
 {
     public int waveNumber = 0;
@@ -13,8 +14,8 @@ public class SpawnManager : GameBehaviour<SpawnManager>
     public GameObject enemyPrefab;
     public int enemiesSpawned;
 
-    [Header("Powerup Spawn")]
-    public GameObject powerupPrefab;
+    [Header("Power ups")]
+    public GameObject[] powerupPrefab;
 
     private float spawnRange = 9;
 
@@ -47,6 +48,12 @@ public class SpawnManager : GameBehaviour<SpawnManager>
         }
     }
 
+    public void CollectableScore()
+    {
+        score = score + 1;
+        AddScore(score);
+    }
+
     public void AddScore(int _score)
     {
         _score = score * _GM.scoreBonus;
@@ -64,7 +71,8 @@ public class SpawnManager : GameBehaviour<SpawnManager>
 
     void SpawnPowerups()
     {
-        Instantiate(powerupPrefab, RandomSpawnPos(), powerupPrefab.transform.rotation);
+        int powerUps = Random.Range(0, powerupPrefab.Length);
+        Instantiate(powerupPrefab[powerUps], RandomSpawnPos(), powerupPrefab[powerUps].transform.rotation);
     }
 
     private Vector3 RandomSpawnPos()

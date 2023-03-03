@@ -24,6 +24,7 @@ public class PlayerController : GameBehaviour<PlayerController>
     {
         playerRB = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("Focal Point");
+        SetUp();
     }
 
     void Update()
@@ -32,6 +33,28 @@ public class PlayerController : GameBehaviour<PlayerController>
 
         powerupIndicator.transform.position = transform.position + new Vector3(0, 1f, 0);
         playerRB.AddForce(focalPoint.transform.forward * speed * forwardInput);
+        Health(playerHealth);
+    }
+
+    void SetUp()
+    {
+        switch (_GM.difficulty)
+        {
+            case Difficulty.Easy:
+                playerHealth = 10;
+                seconds = 10;
+                break;
+            
+            case Difficulty.Medium:
+                playerHealth = 3;
+                seconds = 7;
+                break;
+            
+            case Difficulty.Hard:
+                playerHealth = 1;
+                seconds = 5;
+                break;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +67,18 @@ public class PlayerController : GameBehaviour<PlayerController>
             StartCoroutine(PowerUpCountdown());
         }
 
+        if (other.CompareTag("Collectable"))
+        {
+            Destroy(other.gameObject);
+            _SM.CollectableScore();
+        }
+
+        if (other.CompareTag("Potion"))
+        {
+            Destroy(other.gameObject);
+            playerHealth++;
+        }
+
         if (other.CompareTag("Out Of Bounds"))
         {
             player.transform.position = respawnPoint.position;
@@ -51,7 +86,7 @@ public class PlayerController : GameBehaviour<PlayerController>
             Health(playerHealth);
             if (playerHealth == 0)
             {
-                SceneManager.LoadScene(0);
+                _UI.GameOver();
             }
         }
     }

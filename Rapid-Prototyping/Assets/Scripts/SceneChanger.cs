@@ -29,6 +29,11 @@ public class SceneChanger : GameBehaviour<SceneChanger>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void QuitGame()
     {
         Debug.Log("We have Quit the Game");

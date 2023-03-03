@@ -10,7 +10,7 @@ public class GameManager : GameBehaviour<GameManager>
 
     void Start()
     {
-       // _TIMER.StartTimer(0, TimerDirection.CountUp);
+        //_TIMER.TimerDirection.CountUp(0, TimerDirection.CountUp);
         DifficultySetup();
     }
 
@@ -32,7 +32,8 @@ public class GameManager : GameBehaviour<GameManager>
         {
             Debug.Log("Time Expired");
         }
-    }
+     }
+
     public void ChangeDifficulty(int _difficulty)
     {
         difficulty = (Difficulty)_difficulty;
@@ -44,21 +45,17 @@ public class GameManager : GameBehaviour<GameManager>
         switch (difficulty)
         {
             case Difficulty.Easy:
-                _ENEMY.enemySpeed = 1;
-                _PC.playerHealth = 10;
                 scoreBonus = 50;
                 break;
             case Difficulty.Medium:
-                _ENEMY.enemySpeed = 3;
-                _PC.playerHealth = 3;
                 scoreBonus = 100;
                 break;
             case Difficulty.Hard:
-                _ENEMY.enemySpeed = 3;
-                _PC.playerHealth = 1;
                 scoreBonus = 150;
                 break;
         }
+
+        _SM.AddScore(scoreBonus);
     }
   
 }
