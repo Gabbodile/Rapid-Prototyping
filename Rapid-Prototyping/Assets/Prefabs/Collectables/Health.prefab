@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3803866914654060658}
   - component: {fileID: 3813563978481398140}
   - component: {fileID: -3692660593040741655}
+  - component: {fileID: 1612842738}
   m_Layer: 0
   m_Name: Health
   m_TagString: Potion
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3799645638663383528}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.1976423, y: 1, z: 3.8216429}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
@@ -97,3 +98,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3181021, y: 0.57080644, z: 0.2754844}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1612842738
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799645638663383528}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d55e1a41d136b714395004aed0ffba09, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

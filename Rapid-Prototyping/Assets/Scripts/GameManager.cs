@@ -16,22 +16,22 @@ public class GameManager : GameBehaviour<GameManager>
 
      void Update()
      {
-        if (Input.GetKeyDown(KeyCode.C))
-            _TIMER.ChangeTimerDirection(TimerDirection.CountDown);
-        if (Input.GetKeyDown(KeyCode.U))
-            _TIMER.ChangeTimerDirection(TimerDirection.CountUp);
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (_TIMER.IsTiming())
-                _TIMER.PauseTimer();
-            else
-                _TIMER.ResumeTimer();
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //    _TIMER.ChangeTimerDirection(TimerDirection.CountDown);
+        //if (Input.GetKeyDown(KeyCode.U))
+        //    _TIMER.ChangeTimerDirection(TimerDirection.CountUp);
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    if (_TIMER.IsTiming())
+        //        _TIMER.PauseTimer();
+        //    else
+        //        _TIMER.ResumeTimer();
+        //}
 
-        if (_TIMER.TimeExpired())
-        {
-            Debug.Log("Time Expired");
-        }
+        //if (_TIMER.TimeExpired())
+        //{
+        //    Debug.Log("Time Expired");
+        //}
      }
 
     public void ChangeDifficulty(int _difficulty)

@@ -18,7 +18,6 @@ public class SpawnManager : GameBehaviour<SpawnManager>
     [Header("Power ups")]
     public GameObject[] powerupPrefab;
     
-
     public GameObject winScreen;
 
     void Start()
