@@ -11,6 +11,8 @@ public class GameBehaviour : MJ.Behaviour
     protected static Timer _TIMER { get { return Timer.Instance; } }
     protected static GameManager _GM { get { return GameManager.Instance; } }
 
+    public enum GameState { Title, Instruction, Playing, Pause, GameOver }
+
 }
 
 //
