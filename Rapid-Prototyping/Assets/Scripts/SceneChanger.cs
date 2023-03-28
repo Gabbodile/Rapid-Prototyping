@@ -19,9 +19,19 @@ public class SceneChanger : GameBehaviour<SceneChanger>
         if (Input.GetKeyDown(KeyCode.Escape))
             TogglePause();
     }
-    public void MainMenu()
+    public void Portfolio()
+    {
+        SceneManager.LoadScene("Portfolio");
+    }
+
+    public void Morball()
     {
         SceneManager.LoadScene("Title");
+    }
+
+    public void TreeMenu()
+    {
+        SceneManager.LoadScene("TreeTitle");
     }
 
     public void StartLevel1()
@@ -31,6 +41,25 @@ public class SceneChanger : GameBehaviour<SceneChanger>
     public void StartLevel2()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+    }
+
+    public void StartTreeGame()
+    {
+        SceneManager.LoadScene("Level Screen");
+    }
+
+    public void TreeTutorial()
+    {
+        SceneManager.LoadScene("TreeTutorial");
+    }
+
+    public void SpinGame()
+    {
+        SceneManager.LoadScene("SpinTitle");
+    }
+    public void SpinLevel()
+    {
+        SceneManager.LoadScene("SpinTitle");
     }
 
     public void RestartLevel()
