@@ -7,12 +7,17 @@ public class SceneChanger : GameBehaviour<SceneChanger>
 {
     public GameObject pauseMenu;
     bool isPaused = false;
+    //private void Awake()
+    //{
+    //    Time.timeScale = 1;
+    //}
 
     private void Start()
     {
         pauseMenu.SetActive(false);
         isPaused = false;
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
     {
@@ -59,7 +64,7 @@ public class SceneChanger : GameBehaviour<SceneChanger>
     }
     public void SpinLevel()
     {
-        SceneManager.LoadScene("SpinTitle");
+        SceneManager.LoadScene("Prototype3");
     }
 
     public void RestartLevel()

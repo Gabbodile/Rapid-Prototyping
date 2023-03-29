@@ -324,6 +324,7 @@
 "Assets/Scripts/Prototype 2/Character.cs"
 "Assets/Scripts/Prototype 2/Platforming/BreakablePlatform.cs"
 "Assets/Scripts/Prototype 2/Platforming/PlatformMove.cs"
+"Assets/Scripts/Prototype 3/CannonRotation.cs"
 "Assets/Scripts/RotateCamera.cs"
 "Assets/Scripts/SceneChanger.cs"
 "Assets/Scripts/SceneFader.cs"

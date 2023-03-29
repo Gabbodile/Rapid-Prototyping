@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype 2/TreeTutorial.unity
     guid: a9a22cbc24bb82c4685165ee8a8cb4b0
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3/Prototype3.unity
+    guid: 66dc551f9d2a42a4090ad795b25b5731
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3/SpinTitle.unity
+    guid: 7d21e883260dc8f4eb47de9a72ffea10
   m_configObjects: {}
