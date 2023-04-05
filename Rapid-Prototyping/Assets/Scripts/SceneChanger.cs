@@ -17,20 +17,18 @@ public class SceneChanger : GameBehaviour<SceneChanger>
 
     private void Start()
     {
-        pauseMenu.SetActive(false);
-        isPaused = false;
-        _GM.gameState = GameState.Playing;
+        //pauseMenu.SetActive(false);
+        //isPaused = false;
+       
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            _GM.gameState = GameState.Pause;
-            Cursor.lockState = CursorLockMode.None;
-            TogglePause();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    TogglePause();
+        //}
     }
     public void Portfolio()
     {
@@ -91,6 +89,7 @@ public class SceneChanger : GameBehaviour<SceneChanger>
         isPaused = !isPaused;
         pauseMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0 : 1;
-        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Debug.Log("Ispaused" + isPaused + " Time " + Time.timeScale);
+        
     }
 }

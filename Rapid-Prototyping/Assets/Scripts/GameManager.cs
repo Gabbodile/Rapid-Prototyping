@@ -68,7 +68,7 @@ public class GameManager : GameBehaviour<GameManager>
                 break;
         }
 
-        _SM.AddScore(scoreBonus);
+        //_SM.AddScore(scoreBonus);
     }
   
 }

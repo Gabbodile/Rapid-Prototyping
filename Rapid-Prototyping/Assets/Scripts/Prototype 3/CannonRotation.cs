@@ -15,6 +15,9 @@ public class CannonRotation : GameBehaviour
 
     void Update()
     {
+        if (_GM.gameState == GameState.Pause)
+            return;
+
         float rotateCannon = Input.GetAxis("Mouse X");
         transform.Rotate(0, rotateCannon, 0);
 

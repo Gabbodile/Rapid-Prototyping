@@ -56,7 +56,7 @@ public class Projectile : GameBehaviour
 
     public void ProjectileScore(int _score)
     {
-        score += _score * scoreMultiplier;
+        score += score + _score;
         _SHOP.AddMoney(score);
     }
 }

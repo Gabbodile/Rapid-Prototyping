@@ -18,6 +18,9 @@ public class FiringPoint : GameBehaviour<FiringPoint>
     }
     void Update()
     {
+        if (_GM.gameState == GameState.Pause)
+            return;
+
         if (Input.GetButtonDown("Fire1"))
             FruitType();
     }
@@ -27,46 +30,46 @@ public class FiringPoint : GameBehaviour<FiringPoint>
         switch (fruit)
         {
             case AmmoType.Apple:
-                fireApple();
+                FireApple();
                 bulletSpeed = 1000f;
                 break;
             case
 
                 AmmoType.Banana:
-                fireBanana();
+                FireBanana();
                 bulletSpeed = 1200f;
                 break;
 
             case AmmoType.Chili:
-                fireChili();
+                FireChili();
                 bulletSpeed = 1500f;
                 break;
 
             case AmmoType.Meatball:
-                fireMeatball();
+                FireMeatball();
                 break;
         }
     }
 
-    void fireApple()
+    void FireApple()
     {
         GameObject bulletInstance;
         bulletInstance = Instantiate(apple, transform.position, transform.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
     }
-    void fireBanana()
+    void FireBanana()
     {
         GameObject bulletInstance;
         bulletInstance = Instantiate(banana, transform.position, transform.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
     }
-    void fireChili()
+    void FireChili()
     {
         GameObject bulletInstance;
         bulletInstance = Instantiate(chili, transform.position, transform.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
     }
-    void fireMeatball()
+    void FireMeatball()
     {
         GameObject bulletInstance;
         bulletInstance = Instantiate(meatball, transform.position, transform.rotation);
