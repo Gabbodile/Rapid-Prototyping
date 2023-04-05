@@ -10,6 +10,9 @@ public class GameBehaviour : MJ.Behaviour
     protected static Enemy _ENEMY { get { return Enemy.Instance; } }
     protected static Timer _TIMER { get { return Timer.Instance; } }
     protected static GameManager _GM { get { return GameManager.Instance; } }
+    protected static Money _SHOP { get { return Money.Instance; } }
+    protected static FiringPoint _AMMO { get { return FiringPoint.Instance; } }
+
 
     public enum GameState { Title, Instruction, Playing, Pause, GameOver }
 

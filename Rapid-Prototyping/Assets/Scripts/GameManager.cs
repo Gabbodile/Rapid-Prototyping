@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Difficulty { Easy, Medium, Hard }
+public enum GameState { Title, Playing, Pause }
 public class GameManager : GameBehaviour<GameManager>
 {
     public Difficulty difficulty;
+    public GameState gameState;
     public int scoreBonus = 50;
 
     void Start()
@@ -32,7 +34,18 @@ public class GameManager : GameBehaviour<GameManager>
         //{
         //    Debug.Log("Time Expired");
         //}
-     }
+        switch (gameState)
+        {
+            case GameState.Title:
+                break;
+
+            case GameState.Playing:
+                break;
+
+            case GameState.Pause:
+                break;
+        }
+    }
 
     public void ChangeDifficulty(int _difficulty)
     {

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SceneChanger : GameBehaviour<SceneChanger>
 {
     public GameObject pauseMenu;
+    
     bool isPaused = false;
+
     //private void Awake()
     //{
     //    Time.timeScale = 1;
@@ -16,13 +19,18 @@ public class SceneChanger : GameBehaviour<SceneChanger>
     {
         pauseMenu.SetActive(false);
         isPaused = false;
+        _GM.gameState = GameState.Playing;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _GM.gameState = GameState.Pause;
+            Cursor.lockState = CursorLockMode.None;
             TogglePause();
+        }
     }
     public void Portfolio()
     {

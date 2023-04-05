@@ -7,12 +7,16 @@ public class SpawnBowlingPins : GameBehaviour
     public GameObject bowlingPin;
     public int spawnRange = 50;
     public int bowlingPinsSpawned;
+    public int lifeSpan = 20;
 
     private void Update()
     {
         bowlingPinsSpawned = FindObjectsOfType<BowlingPin>().Length;
         if (bowlingPinsSpawned == 1)
             MakeBowlingPin(10);
+
+        if(Input.GetKey(KeyCode.Space))
+            MakeBowlingPin(1);
     }
 
     void MakeBowlingPin(int bowlingPinsSpawned)
